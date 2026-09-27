@@ -145,7 +145,7 @@ button { color: inherit; }
 .hero-art { position: relative; display: grid; place-items: center; min-width: 0; }
 .hero-cover { position: relative; z-index: 2; width: min(100%, 520px); margin: 0; padding: 10px; border: 1px solid rgba(255, 255, 255, .13); border-radius: 50%; background: rgba(255, 255, 255, .035); box-shadow: 0 50px 100px rgba(0, 0, 0, .46), 0 0 80px rgba(255, 56, 203, .08); transform: rotate(3deg); }
 .hero-cover::after { position: absolute; inset: 16%; content: ""; border: 1px solid rgba(255, 255, 255, .12); border-radius: 50%; pointer-events: none; }
-.hero-cover img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; }
+.hero-cover img { width: 100%; aspect-ratio: 1; padding: 11%; object-fit: contain; border-radius: 50%; background: #05030a; }
 .hero-cover figcaption { position: absolute; right: 6%; bottom: 7%; display: flex; flex-direction: column; padding: .65rem .9rem; border: 1px solid var(--line); border-radius: .5rem; background: rgba(10, 7, 17, .82); backdrop-filter: blur(10px); transform: rotate(-3deg); }
 .hero-cover figcaption span:first-child { color: var(--pink); font-size: .58rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .hero-cover figcaption span:last-child { font-size: .78rem; font-weight: 700; }
@@ -241,10 +241,11 @@ button { color: inherit; }
 .founder h2 { font-size: clamp(3.3rem, 6vw, 5.8rem); }
 .founder-copy > p:not(.eyebrow) { max-width: 650px; margin-top: 2rem; color: var(--muted); font-size: 1.08rem; }
 .book-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin: 2rem 0 1.2rem; }
-.book-list article { min-height: 150px; padding: 1.3rem; border: 1px solid var(--line); border-radius: .8rem; background: rgba(255, 255, 255, .025); transition: border-color .25s, transform .25s; }
-.book-list article:hover { border-color: rgba(255, 79, 216, .42); transform: translateY(-3px); }
+.book-card { display: flex; min-height: 160px; flex-direction: column; padding: 1.3rem; border: 1px solid var(--line); border-radius: .8rem; background: rgba(255, 255, 255, .025); transition: border-color .25s, transform .25s, background .25s; }
+.book-card:hover, .book-card:focus-visible { border-color: rgba(255, 79, 216, .62); background: rgba(255, 79, 216, .06); transform: translateY(-3px); }
 .book-list span { color: var(--pink); font-size: .6rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
 .book-list h3 { margin: 1.2rem 0 0; font-family: Georgia, serif; font-size: 1.25rem; font-weight: 500; line-height: 1.15; }
+.book-card strong { margin-top: auto; padding-top: 1.2rem; color: #c8bdcf; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }
 
 .listen { position: relative; min-height: 620px; display: grid; place-items: center; overflow: hidden; border-block: 1px solid var(--line); text-align: center; }
 .listen-art { position: absolute; inset: -12%; opacity: .28; background: linear-gradient(rgba(9, 6, 17, .5), rgba(9, 6, 17, .9)), url('assets/neon-paint/covers/06-naufrago-de-amor.jpg') center 38% / cover; filter: blur(4px) saturate(1.2); transform: scale(1.06); }
