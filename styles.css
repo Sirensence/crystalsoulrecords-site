@@ -235,7 +235,7 @@ button { color: inherit; }
 .founder-grid { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: clamp(3rem, 9vw, 8rem); }
 .founder-portrait { position: relative; justify-self: center; }
 .founder-portrait::before { position: absolute; inset: -1.2rem; content: ""; border: 1px solid var(--line); border-radius: 50%; }
-.founder-portrait img { width: min(100%, 420px); aspect-ratio: 1; border-radius: 50%; object-fit: cover; filter: grayscale(.35) contrast(1.05); }
+.founder-portrait img { width: min(100%, 420px); aspect-ratio: 1; border-radius: 50%; object-fit: cover; }
 .founder-portrait > span { position: absolute; right: -1.8rem; bottom: 12%; padding: .55rem .8rem; border: 1px solid var(--line); background: var(--night); color: var(--pink); font-size: .63rem; font-weight: 850; letter-spacing: .15em; transform: rotate(-7deg); }
 .founder-copy .section-kicker { margin-bottom: 2rem; }
 .founder h2 { font-size: clamp(3.3rem, 6vw, 5.8rem); }
