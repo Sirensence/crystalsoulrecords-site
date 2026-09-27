@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Campo de estrellas de Crystal Soul Records">
+  <defs>
+    <radialGradient id="space" cx="38%" cy="32%" r="76%">
+      <stop offset="0" stop-color="#211040"/>
+      <stop offset="0.52" stop-color="#0d0920"/>
+      <stop offset="1" stop-color="#05030d"/>
+    </radialGradient>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ff4fd8" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#ff4fd8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <circle cx="256" cy="256" r="248" fill="url(#space)" stroke="#332451" stroke-width="12"/>
+  <circle cx="256" cy="256" r="218" fill="none" stroke="#ff4fd8" stroke-opacity="0.18" stroke-width="2"/>
+  <circle cx="248" cy="250" r="185" fill="url(#halo)"/>
+
+  <g fill="#ffffff" opacity="0.9">
+    <circle cx="102" cy="122" r="4"/><circle cx="177" cy="84" r="3"/><circle cx="274" cy="91" r="4"/>
+    <circle cx="387" cy="118" r="3"/><circle cx="427" cy="215" r="4"/><circle cx="87" cy="285" r="3"/>
+    <circle cx="132" cy="402" r="4"/><circle cx="274" cy="431" r="3"/><circle cx="404" cy="365" r="4"/>
+    <circle cx="352" cy="292" r="3"/><circle cx="196" cy="345" r="3"/><circle cx="145" cy="228" r="3"/>
+  </g>
+
+  <g fill="#915cff">
+    <circle cx="79" cy="188" r="6"/><circle cx="338" cy="143" r="5"/><circle cx="448" cy="310" r="5"/>
+    <circle cx="229" cy="412" r="5"/><circle cx="117" cy="345" r="5"/>
+  </g>
+
+  <g fill="#64e9ff" filter="url(#glow)">
+    <path d="M143 137h11l4-18 4 18h11l-11 5-4 18-4-18z"/>
+    <circle cx="397" cy="236" r="7"/><circle cx="301" cy="374" r="6"/>
+  </g>
+
+  <g fill="#ff4fd8" filter="url(#glow)">
+    <path d="M246 196h20l8-37 8 37h20l-20 9-8 38-8-38z"/>
+    <path d="M167 301h14l5-25 6 25h14l-14 7-6 25-5-25z"/>
+    <circle cx="360" cy="338" r="8"/>
+  </g>
+
+  <g fill="#ffffff" opacity="0.6">
+    <circle cx="211" cy="132" r="2"/><circle cx="315" cy="123" r="2"/><circle cx="371" cy="184" r="2"/>
+    <circle cx="104" cy="242" r="2"/><circle cx="216" cy="251" r="2"/><circle cx="324" cy="260" r="2"/>
+    <circle cx="422" cy="282" r="2"/><circle cx="238" cy="315" r="2"/><circle cx="328" cy="414" r="2"/>
+  </g>
+</svg>
