@@ -5,10 +5,11 @@ const catalogSources = [
     map: (row) => ({
       title: row.release,
       artist: row.artist,
-      url: row.bandcamp_url,
+      url: row.spotify_url || row.bandcamp_url,
       image: `assets/bandcamp/covers/${row.filename}`,
       format: row.bandcamp_url?.includes("/track/") ? "Single" : "Álbum / EP",
-      date: ""
+      date: "",
+      platform: row.spotify_url ? "Spotify" : "Bandcamp"
     })
   },
   {
@@ -37,11 +38,11 @@ const catalogSources = [
   },
   {
     path: "data/neon-angel-catalog.csv",
-    platform: "Bandcamp",
+    platform: "Spotify",
     map: (row) => ({
       title: row.title,
       artist: row.artist,
-      url: row.bandcamp_url,
+      url: row.spotify_release_url,
       image: `assets/neon-angel/${row.cover_file}`,
       format: row.format,
       date: row.release_date
@@ -167,7 +168,10 @@ async function loadCatalog() {
     const sourceResults = await Promise.all(catalogSources.map(async (source) => {
       const response = await fetch(source.path);
       if (!response.ok) throw new Error(`No se pudo cargar ${source.path}`);
-      return parseCSV(await response.text()).map((row) => ({ ...source.map(row), platform: source.platform }));
+      return parseCSV(await response.text()).map((row) => {
+        const release = source.map(row);
+        return { ...release, platform: release.platform || source.platform };
+      });
     }));
 
     state.releases = sourceResults
