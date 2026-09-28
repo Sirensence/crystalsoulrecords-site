@@ -7,8 +7,8 @@ const catalogSources = [
       artist: row.artist,
       url: row.spotify_url || row.bandcamp_url,
       image: `assets/bandcamp/covers/${row.filename}`,
-      format: row.bandcamp_url?.includes("/track/") ? "Single" : "Álbum / EP",
-      date: "",
+      format: row.format || (row.bandcamp_url?.includes("/track/") ? "Single" : "Álbum / EP"),
+      date: row.release_date || "",
       platform: row.spotify_url ? "Spotify" : "Bandcamp"
     })
   },
