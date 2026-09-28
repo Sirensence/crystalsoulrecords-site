@@ -184,6 +184,17 @@ async function loadCatalog() {
         return a.artist.localeCompare(b.artist, "es");
       });
 
+    const totalReleases = state.releases.length;
+    document.querySelectorAll("[data-total-releases]").forEach((element) => {
+      element.textContent = totalReleases.toLocaleString("es-MX");
+    });
+
+    const catalogCta = document.querySelector("[data-total-releases-cta]");
+    if (catalogCta) {
+      const releaseLabel = totalReleases === 1 ? "lanzamiento" : "lanzamientos";
+      catalogCta.textContent = `Explorar ${totalReleases.toLocaleString("es-MX")} ${releaseLabel}`;
+    }
+
     const artists = [...new Set(state.releases.map((release) => release.artist))].sort((a, b) => a.localeCompare(b, "es"));
     artists.forEach((artist) => {
       const option = document.createElement("option");
