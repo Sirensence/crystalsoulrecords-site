@@ -22,3 +22,9 @@ Paquete unificado y listo para colocarse en la rama `main` del repositorio `crys
 La portada de `Pink Eclipse` también funciona como logotipo de Crystal Soul Records. Por esa razón aparece tanto en `assets/bandcamp/covers/` como en `assets/bandcamp/branding/`; esta duplicación es intencional.
 
 Los archivos se encuentran extraídos y pueden utilizarse directamente desde HTML y CSS. El ZIP unificado debe conservarse como respaldo y no necesita subirse al repositorio.
+
+## Actualización automática de lanzamientos
+
+El flujo `.github/workflows/sync-releases.yml` revisa cada seis horas los ocho perfiles configurados en `data/release-sources.json`. Los lanzamientos detectados se guardan en `data/auto-catalog.json` y el sitio los combina con el catálogo curado sin duplicarlos.
+
+No requiere Spotify Premium ni credenciales. Consulta [AUTOMATIC_RELEASES.md](AUTOMATIC_RELEASES.md) para conocer su funcionamiento.
