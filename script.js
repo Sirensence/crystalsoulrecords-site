@@ -47,6 +47,21 @@ const catalogSources = [
       format: row.format,
       date: row.release_date
     })
+  },
+  {
+    path: "data/auto-catalog.json",
+    type: "json",
+    platform: "Spotify",
+    map: (row) => ({
+      title: row.title,
+      artist: row.artist,
+      url: row.spotify_url || row.spotify_search_url || row.spotify_artist_url,
+      image: row.cover_url,
+      format: row.format,
+      date: row.release_date,
+      platform: "Spotify",
+      sourceId: row.source_id
+    })
   }
 ];
 
@@ -109,6 +124,37 @@ function normalize(value) {
     .toLocaleLowerCase("es");
 }
 
+function normalizeReleaseTitle(value) {
+  return normalize(value)
+    .replace(/\s+-\s+(single|ep)\s*$/i, "")
+    .replace(/\s*\((single|ep)\)\s*$/i, "")
+    .replace(/\s+ep\s*$/i, "")
+    .replace(/\s*\(feat\.?[^)]*\)\s*$/i, "")
+    .replace(/\s*\((demos?)\)\s*$/i, " demo")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function releaseMetadataKey(release) {
+  return `${normalize(release.artist).trim()}::${normalizeReleaseTitle(release.title)}`;
+}
+
+function deduplicateReleases(releases) {
+  const unique = new Map();
+  const platformPriority = { Bandcamp: 1, Spotify: 2 };
+
+  releases.forEach((release) => {
+    const key = releaseMetadataKey(release);
+    const current = unique.get(key);
+
+    if (!current || (platformPriority[release.platform] || 0) > (platformPriority[current.platform] || 0)) {
+      unique.set(key, release);
+    }
+  });
+
+  return [...unique.values()];
+}
+
 function displayDate(date) {
   if (!date) return "Catálogo oficial";
   const parsed = new Date(`${date}T12:00:00`);
@@ -168,15 +214,19 @@ async function loadCatalog() {
     const sourceResults = await Promise.all(catalogSources.map(async (source) => {
       const response = await fetch(source.path);
       if (!response.ok) throw new Error(`No se pudo cargar ${source.path}`);
-      return parseCSV(await response.text()).map((row) => {
+      const rows = source.type === "json"
+        ? (await response.json()).releases ?? []
+        : parseCSV(await response.text());
+
+      return rows.map((row) => {
         const release = source.map(row);
         return { ...release, platform: release.platform || source.platform };
       });
     }));
 
-    state.releases = sourceResults
+    state.releases = deduplicateReleases(sourceResults
       .flat()
-      .filter((release) => release.title && release.artist && release.url && release.image)
+      .filter((release) => release.title && release.artist && release.url && release.image))
       .sort((a, b) => {
         if (a.date && b.date) return b.date.localeCompare(a.date);
         if (a.date) return -1;
