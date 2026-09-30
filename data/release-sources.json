@@ -1,0 +1,42 @@
+[
+  {
+    "artist": "Alex Creek",
+    "apple_artist_id": 1760265599,
+    "spotify_artist_url": "https://open.spotify.com/artist/7pXONXCcbdzl3qbRff2ca6"
+  },
+  {
+    "artist": "Calming Death",
+    "apple_artist_id": 1820568278,
+    "spotify_artist_url": "https://open.spotify.com/artist/28qbuv4IsNlleX4AnxkZbk"
+  },
+  {
+    "artist": "Crystal Soul",
+    "apple_artist_id": 1705621416,
+    "spotify_artist_url": "https://open.spotify.com/artist/21mMirUGp5UKe1ZSb0Q6nl"
+  },
+  {
+    "artist": "El Arroyo Tropical",
+    "apple_artist_id": 1760242606,
+    "spotify_artist_url": "https://open.spotify.com/artist/29uBYks6LSSIAc0IghiHzp"
+  },
+  {
+    "artist": "Neon Angel",
+    "apple_artist_id": 1764769178,
+    "spotify_artist_url": "https://open.spotify.com/artist/5M8CWUPhcB9z7dz1Yznvdp"
+  },
+  {
+    "artist": "Neon Paint",
+    "apple_artist_id": 1793092902,
+    "spotify_artist_url": "https://open.spotify.com/artist/5dIzWlHiAnca5jLR6VUHXf"
+  },
+  {
+    "artist": "Silence Awaits",
+    "apple_artist_id": 1704352820,
+    "spotify_artist_url": "https://open.spotify.com/artist/3EK53UBvaWYKspu3aKFgqw"
+  },
+  {
+    "artist": "Sirensence",
+    "apple_artist_id": 1792750613,
+    "spotify_artist_url": "https://open.spotify.com/artist/4KYUjMtt4WTOqNm32dv2CO"
+  }
+]
