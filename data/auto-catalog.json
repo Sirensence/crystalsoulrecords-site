@@ -3,6 +3,20 @@
   "market": "MX",
   "releases": [
     {
+      "source_id": "apple:6817973984",
+      "apple_collection_id": "6817973984",
+      "title": "I Hate The Way We Love",
+      "artist": "Sirensence",
+      "spotify_search_url": "https://open.spotify.com/search/Sirensence%20I%20Hate%20The%20Way%20We%20Love",
+      "spotify_artist_url": "https://open.spotify.com/artist/4KYUjMtt4WTOqNm32dv2CO",
+      "apple_music_url": "https://music.apple.com/mx/album/i-hate-the-way-we-love-single/6817973984?uo=4",
+      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ec/fa/68/ecfa6820-2825-8696-2777-ae2a74f49752/artwork.jpg/600x600bb.jpg",
+      "format": "Single",
+      "release_date": "2026-09-30",
+      "total_tracks": 1,
+      "spotify_url": ""
+    },
+    {
       "source_id": "apple:6817568937",
       "apple_collection_id": "6817568937",
       "title": "My Delusional Spouse",
