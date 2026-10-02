@@ -21,7 +21,7 @@ const catalogSources = [
       title: row.title,
       artist: row.artist,
       url: row.spotify_release_url,
-      image: `assets/sirensence/${row.cover_file}`,
+      image: row.cover_url || `assets/sirensence/${row.cover_file}`,
       format: row.format,
       date: row.release_date
     })
