@@ -1,3 +1,5 @@
+import { parseCSV, normalize, deduplicateReleases } from "./catalog-links.mjs";
+
 const catalogSources = [
   {
     path: "data/bandcamp-catalog.csv",
@@ -31,7 +33,7 @@ const catalogSources = [
       title: row.title,
       artist: row.artist,
       url: row.spotify_release_url,
-      image: `assets/neon-paint/${row.cover_file}`,
+      image: row.cover_url || `assets/neon-paint/${row.cover_file}`,
       format: row.format,
       date: row.release_date
     })
@@ -78,82 +80,6 @@ const filter = document.querySelector("[data-filter]");
 const search = document.querySelector("[data-search]");
 const count = document.querySelector("[data-count]");
 const loadMore = document.querySelector("[data-load-more]");
-
-function parseCSV(text) {
-  const rows = [];
-  let row = [];
-  let cell = "";
-  let quoted = false;
-
-  for (let index = 0; index < text.length; index += 1) {
-    const character = text[index];
-    const next = text[index + 1];
-
-    if (character === '"' && quoted && next === '"') {
-      cell += '"';
-      index += 1;
-    } else if (character === '"') {
-      quoted = !quoted;
-    } else if (character === "," && !quoted) {
-      row.push(cell);
-      cell = "";
-    } else if ((character === "\n" || character === "\r") && !quoted) {
-      if (character === "\r" && next === "\n") index += 1;
-      row.push(cell);
-      if (row.some((value) => value.trim())) rows.push(row);
-      row = [];
-      cell = "";
-    } else {
-      cell += character;
-    }
-  }
-
-  if (cell || row.length) {
-    row.push(cell);
-    rows.push(row);
-  }
-
-  const [headers, ...records] = rows;
-  return records.map((values) => Object.fromEntries(headers.map((header, index) => [header.trim(), values[index]?.trim() ?? ""])));
-}
-
-function normalize(value) {
-  return value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLocaleLowerCase("es");
-}
-
-function normalizeReleaseTitle(value) {
-  return normalize(value)
-    .replace(/\s+-\s+(single|ep)\s*$/i, "")
-    .replace(/\s*\((single|ep)\)\s*$/i, "")
-    .replace(/\s+ep\s*$/i, "")
-    .replace(/\s*\(feat\.?[^)]*\)\s*$/i, "")
-    .replace(/\s*\((demos?)\)\s*$/i, " demo")
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
-}
-
-function releaseMetadataKey(release) {
-  return `${normalize(release.artist).trim()}::${normalizeReleaseTitle(release.title)}`;
-}
-
-function deduplicateReleases(releases) {
-  const unique = new Map();
-  const platformPriority = { Bandcamp: 1, Spotify: 2 };
-
-  releases.forEach((release) => {
-    const key = releaseMetadataKey(release);
-    const current = unique.get(key);
-
-    if (!current || (platformPriority[release.platform] || 0) > (platformPriority[current.platform] || 0)) {
-      unique.set(key, release);
-    }
-  });
-
-  return [...unique.values()];
-}
 
 function displayDate(date) {
   if (!date) return "Catálogo oficial";
@@ -212,7 +138,7 @@ function renderCatalog() {
 async function loadCatalog() {
   try {
     const sourceResults = await Promise.all(catalogSources.map(async (source) => {
-      const response = await fetch(source.path);
+      const response = await fetch(source.path, { cache: "no-cache" });
       if (!response.ok) throw new Error(`No se pudo cargar ${source.path}`);
       const rows = source.type === "json"
         ? (await response.json()).releases ?? []
@@ -244,6 +170,11 @@ async function loadCatalog() {
       const releaseLabel = totalReleases === 1 ? "lanzamiento" : "lanzamientos";
       catalogCta.textContent = `Explorar ${totalReleases.toLocaleString("es-MX")} ${releaseLabel}`;
     }
+
+    document.querySelectorAll("[data-artist-filter]").forEach((button) => {
+      const artistCount = state.releases.filter((release) => release.artist === button.dataset.artistFilter).length;
+      button.textContent = `Ver ${artistCount.toLocaleString("es-MX")} ${artistCount === 1 ? "lanzamiento" : "lanzamientos"}`;
+    });
 
     const artists = [...new Set(state.releases.map((release) => release.artist))].sort((a, b) => a.localeCompare(b, "es"));
     artists.forEach((artist) => {

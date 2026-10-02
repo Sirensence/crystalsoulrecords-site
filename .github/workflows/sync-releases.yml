@@ -25,6 +25,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Check catalog links
+        run: node --test test/catalog-links.test.mjs
+
       - name: Fetch release catalog
         run: node scripts/sync-releases.mjs
 

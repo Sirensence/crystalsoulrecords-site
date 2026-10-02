@@ -9,7 +9,11 @@ El sitio revisa cada seis horas los ocho perfiles musicales de Crystal Soul Reco
 3. El sitio combina ese archivo con los catálogos curados y elimina duplicados.
 4. Si aparece un lanzamiento nuevo, GitHub publica de nuevo la página y el contador se actualiza automáticamente.
 
-Los enlaces curados existentes continúan abriendo directamente Spotify. Un lanzamiento detectado automáticamente abre una búsqueda precisa en Spotify con el artista y el título. Cuando se conoce un enlace directo, puede añadirse opcionalmente a `data/release-link-overrides.json`, pero esto no es necesario para que el lanzamiento aparezca.
+Los enlaces directos verificados en los catálogos curados, el catálogo anterior o `data/release-link-overrides.json` se conservan en cada sincronización. Al combinar entradas duplicadas, el sitio siempre prefiere un enlace directo al lanzamiento sobre una búsqueda de Spotify.
+
+La fuente pública de metadatos es Apple Music/iTunes. Spotify puede publicar un lanzamiento antes de que esa fuente lo incluya. En ese caso, puede añadirse al catálogo curado de su artista con el enlace y la portada oficiales; esa entrada permanece visible después de las sincronizaciones.
+
+Una entrada nueva sin enlace directo verificado conserva la búsqueda de artista y título como alternativa hasta que se añada la URL oficial.
 
 ## Revisión manual opcional
 

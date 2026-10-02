@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
 import { fileURLToPath } from "node:url";
+import { parseCSV, applySpotifyLinks } from "../catalog-links.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourcesPath = path.join(root, "data", "release-sources.json");
@@ -11,7 +12,8 @@ const market = "MX";
 
 async function fetchJson(url, attempt = 1) {
   const response = await fetch(url, {
-    headers: { "User-Agent": "CrystalSoulRecordsCatalog/1.0" }
+    headers: { "User-Agent": "CrystalSoulRecordsCatalog/1.0" },
+    signal: AbortSignal.timeout(25000)
   });
 
   if ((response.status === 429 || response.status >= 500) && attempt <= 4) {
@@ -83,15 +85,23 @@ async function getArtistReleases(source) {
 
 const sources = JSON.parse(await fs.readFile(sourcesPath, "utf8"));
 const linkOverrides = JSON.parse(await fs.readFile(overridesPath, "utf8").catch(() => "{}"));
-const releases = [];
+const previous = JSON.parse(await fs.readFile(outputPath, "utf8").catch(() => "{}"));
+const curatedPaths = ["bandcamp-catalog.csv", "sirensence-catalog.csv", "neon-paint-catalog.csv", "neon-angel-catalog.csv"];
+const curated = (await Promise.all(curatedPaths.map(async (filename) =>
+  parseCSV(await fs.readFile(path.join(root, "data", filename), "utf8"))
+))).flat().map((row) => ({
+  artist: row.artist,
+  title: row.title || row.release,
+  spotify_url: row.spotify_release_url || row.spotify_url
+}));
+let releases = [];
 
 for (const source of sources) {
   releases.push(...await getArtistReleases(source));
 }
 
-for (const release of releases) {
-  release.spotify_url = linkOverrides[release.apple_collection_id] || "";
-}
+// Keep verified release URLs when the public feed only supplies metadata.
+releases = applySpotifyLinks(releases, linkOverrides, curated, previous.releases || []);
 
 releases.sort((a, b) => {
   const dateOrder = (b.release_date || "").localeCompare(a.release_date || "");
@@ -101,9 +111,9 @@ releases.sort((a, b) => {
 });
 
 const output = `${JSON.stringify({ schema_version: 1, market, releases }, null, 2)}\n`;
-const previous = await fs.readFile(outputPath, "utf8").catch(() => "");
+const previousText = await fs.readFile(outputPath, "utf8").catch(() => "");
 
-if (previous === output) {
+if (previousText === output) {
   console.log(`Catálogo sin cambios: ${releases.length} lanzamientos revisados.`);
 } else {
   await fs.writeFile(outputPath, output, "utf8");

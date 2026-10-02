@@ -1,4 +1,4 @@
-order,artist,title,format,release_date,year,track_count,total_duration,explicit,spotify_release_url,cover_file,copyright,phonographic_rights,bandcamp_status
+order,artist,title,format,release_date,year,track_count,total_duration,explicit,spotify_release_url,cover_file,copyright,phonographic_rights,bandcamp_status,cover_url
 1,Neon Paint,En el viejo bar,Single,2026-09-21,2026,1,2:41,no,https://open.spotify.com/intl-es/album/5zdOVfFEO3Xkzrt9a9i34X,covers/01-en-el-viejo-bar.jpg,© 2026 Crystal Soul Records,℗ 2026 Crystal Soul Records,not_available
 2,Neon Paint,Sirena del mar,Single,2026-09-21,2026,1,2:13,no,https://open.spotify.com/intl-es/album/6Xd8mmYG4ZsNtaNxkRl8t7,covers/02-sirena-del-mar.jpg,© 2026 Crystal Soul Records,℗ 2026 Crystal Soul Records,not_available
 3,Neon Paint,"Oh, My Love",Single,2026-09-20,2026,1,2:13,no,https://open.spotify.com/intl-es/album/0o5F5G5g9u1h6WRQmSWp3M,covers/03-oh-my-love.jpg,© 2026 Crystal Soul Records,℗ 2026 Crystal Soul Records,not_available
@@ -15,3 +15,5 @@ order,artist,title,format,release_date,year,track_count,total_duration,explicit,
 14,Neon Paint,Nunca lo aceptaría,Single,2026-07-23,2026,1,2:14,no,https://open.spotify.com/intl-es/album/3N3fWDVTBh0d9eoHOBv7De,covers/14-nunca-lo-aceptaria.jpg,© 2026 Crystal Soul Records,℗ 2026 Crystal Soul Records,not_available
 15,Neon Paint,Mas Que Ayer,Single,2026-09-26,2026,1,3:56,no,https://open.spotify.com/intl-es/album/4yV3TzzlTrwl14uDismF9x,covers/15-mas-que-ayer.jpg,© 2026 Crystal Soul Records,℗ 2026 Crystal Soul Records,not_available
 16,Neon Paint,Mirame,Single,2026-09-26,2026,1,1:46,no,https://open.spotify.com/intl-es/album/4c6XGb98aomzAQbth8xb17,covers/16-mirame.jpg,© 2026 Crystal Soul Records,℗ 2026 Crystal Soul Records,not_available
+17,Neon Paint,DESTELLO,Single,2026-10-01,2026,1,5:15,no,https://open.spotify.com/intl-es/album/1DAi0ErDPkUFjIK8AEujAZ,,© 2026 Crystal Soul Records,℗ 2026 Crystal Soul Records,not_available,https://i.scdn.co/image/ab67616d0000aa54b4b0b842247edbab1f59e958
+18,Neon Paint,Ya No Hay Noches Para Mí,Single,2026-10-01,2026,1,2:30,no,https://open.spotify.com/intl-es/album/2NXclbI22fbtprqhZRlGad,,© 2026 Crystal Soul Records,℗ 2026 Crystal Soul Records,not_available,https://i.scdn.co/image/ab67616d0000aa54f49306cc57a3c9f0b444855d
