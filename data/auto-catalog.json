@@ -3,34 +3,6 @@
   "market": "MX",
   "releases": [
     {
-      "source_id": "apple:6818549649",
-      "apple_collection_id": "6818549649",
-      "title": "DESTELLO",
-      "artist": "Neon Paint",
-      "spotify_search_url": "https://open.spotify.com/search/Neon%20Paint%20DESTELLO",
-      "spotify_artist_url": "https://open.spotify.com/artist/5dIzWlHiAnca5jLR6VUHXf",
-      "apple_music_url": "https://music.apple.com/mx/album/destello-single/6818549649?uo=4",
-      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/1d/69/2c/1d692c5c-f6a4-1e90-4bd3-a19ce5509a28/artwork.jpg/600x600bb.jpg",
-      "format": "Single",
-      "release_date": "2026-10-01",
-      "total_tracks": 1,
-      "spotify_url": "https://open.spotify.com/intl-es/album/1DAi0ErDPkUFjIK8AEujAZ"
-    },
-    {
-      "source_id": "apple:6818549203",
-      "apple_collection_id": "6818549203",
-      "title": "Ya No Hay Noches Para Mí",
-      "artist": "Neon Paint",
-      "spotify_search_url": "https://open.spotify.com/search/Neon%20Paint%20Ya%20No%20Hay%20Noches%20Para%20M%C3%AD",
-      "spotify_artist_url": "https://open.spotify.com/artist/5dIzWlHiAnca5jLR6VUHXf",
-      "apple_music_url": "https://music.apple.com/mx/album/ya-no-hay-noches-para-m%C3%AD-single/6818549203?uo=4",
-      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/99/28/7e/99287e33-c160-745b-b529-fbe00542235e/artwork.jpg/600x600bb.jpg",
-      "format": "Single",
-      "release_date": "2026-10-01",
-      "total_tracks": 1,
-      "spotify_url": "https://open.spotify.com/intl-es/album/2NXclbI22fbtprqhZRlGad"
-    },
-    {
       "source_id": "apple:6817973984",
       "apple_collection_id": "6817973984",
       "title": "I Hate The Way We Love",
