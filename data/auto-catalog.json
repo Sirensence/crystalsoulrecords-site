@@ -3,6 +3,20 @@
   "market": "MX",
   "releases": [
     {
+      "source_id": "apple:6818735901",
+      "apple_collection_id": "6818735901",
+      "title": "Jennifer",
+      "artist": "Sirensence",
+      "spotify_search_url": "https://open.spotify.com/search/Sirensence%20Jennifer",
+      "spotify_artist_url": "https://open.spotify.com/artist/4KYUjMtt4WTOqNm32dv2CO",
+      "apple_music_url": "https://music.apple.com/mx/album/jennifer-single/6818735901?uo=4",
+      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b3/6c/cc/b36cccc2-ec00-2a49-8597-6aa55662c201/artwork.jpg/600x600bb.jpg",
+      "format": "Single",
+      "release_date": "2026-10-02",
+      "total_tracks": 1,
+      "spotify_url": "https://open.spotify.com/intl-es/album/6LE1c5P4KosF8M6Jx5AH7C"
+    },
+    {
       "source_id": "apple:6818549649",
       "apple_collection_id": "6818549649",
       "title": "DESTELLO",
