@@ -3,6 +3,20 @@
   "market": "MX",
   "releases": [
     {
+      "source_id": "apple:6819118709",
+      "apple_collection_id": "6819118709",
+      "title": "I Wish Again",
+      "artist": "Neon Paint",
+      "spotify_search_url": "https://open.spotify.com/search/Neon%20Paint%20I%20Wish%20Again",
+      "spotify_artist_url": "https://open.spotify.com/artist/5dIzWlHiAnca5jLR6VUHXf",
+      "apple_music_url": "https://music.apple.com/mx/album/i-wish-again-single/6819118709?uo=4",
+      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8c/96/f2/8c96f2e9-74f3-5ed4-ae48-df2a0d243e71/artwork.jpg/600x600bb.jpg",
+      "format": "Single",
+      "release_date": "2026-10-03",
+      "total_tracks": 1,
+      "spotify_url": "https://open.spotify.com/intl-es/album/27s7aH31RlWtEz1LXnfrGC"
+    },
+    {
       "source_id": "apple:6818735901",
       "apple_collection_id": "6818735901",
       "title": "Jennifer",
