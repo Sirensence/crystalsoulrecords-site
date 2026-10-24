@@ -3,6 +3,20 @@
   "market": "MX",
   "releases": [
     {
+      "source_id": "apple:6826480905",
+      "apple_collection_id": "6826480905",
+      "title": "En El Viento",
+      "artist": "Neon Paint",
+      "spotify_search_url": "https://open.spotify.com/search/Neon%20Paint%20En%20El%20Viento",
+      "spotify_artist_url": "https://open.spotify.com/artist/5dIzWlHiAnca5jLR6VUHXf",
+      "apple_music_url": "https://music.apple.com/mx/album/en-el-viento-single/6826480905?uo=4",
+      "cover_url": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/84/97/59/849759f2-67e5-d2ff-be44-78f91c2f1a42/artwork.jpg/600x600bb.jpg",
+      "format": "Single",
+      "release_date": "2026-10-23",
+      "total_tracks": 1,
+      "spotify_url": ""
+    },
+    {
       "source_id": "apple:6819118709",
       "apple_collection_id": "6819118709",
       "title": "I Wish Again",
